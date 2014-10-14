@@ -27,6 +27,8 @@ public final class Intents {
   }
 
   public static final class Scan {
+
+    public static final String TORCH_ON = "TORCH_ON";
     /**
      * Send this intent to open the Barcodes app in scanning mode, find a barcode, and return
      * the results.
@@ -102,7 +104,7 @@ public final class Intents {
      * of the app which requested the scan via
      * {@link android.app.Activity#startActivityForResult(android.content.Intent, int)}
      * The barcodes contents can be retrieved with
-     * {@link android.content.Intent#getStringExtra(String)}. 
+     * {@link android.content.Intent#getStringExtra(String)}.
      * If the user presses Back, the result code will be {@link android.app.Activity#RESULT_CANCELED}.
      */
     public static final String RESULT = "SCAN_RESULT";
@@ -174,7 +176,7 @@ public final class Intents {
 
     /**
      * The data to encode. Use {@link android.content.Intent#putExtra(String, String)} or
-     * {@link android.content.Intent#putExtra(String, android.os.Bundle)}, 
+     * {@link android.content.Intent#putExtra(String, android.os.Bundle)},
      * depending on the type and format specified. Non-QR Code formats should
      * just use a String here. For QR Code, see Contents for details.
      */
