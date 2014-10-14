@@ -443,6 +443,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         }
         break;
     }
+    cameraManager.setTorch(false);
   }
 
   /**
@@ -721,12 +722,13 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     Intent intent = getIntent();
 
     Log.d("BarcodeScanner", Boolean.toString(intent.getBooleanExtra(Intents.Scan.TORCH_ON, false)));
-    if (intent.hasExtra(Intents.Scan.TORCH_ON) && intent.getBooleanExtra(Intents.Scan.TORCH_ON, false)) {
+    if (intent.hasExtra(Intents.Scan.TORCH_ON)) {
       Log.d("BarcodeScanner", "Logging ---- turning on torch");
-      cameraManager.setTorch(true);
+      Log.d("BarcodeScanner", Intents.Scan.TORCH_ON);
+      cameraManager.setTorch(intent.getBooleanExtra(Intents.Scan.TORCH_ON, false));
     }
-
   }
+
 
   private void displayFrameworkBugMessageAndExit() {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);

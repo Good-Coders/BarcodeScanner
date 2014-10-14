@@ -120,8 +120,10 @@ var ScannerLoader = function (require, exports, module) {
 
     var settings = {
       "width": (userSettings.width > 0) ? userSettings.width : 600,
-      "height": (userSettings.height > 0) ? userSettings.height : 700
+      "height": (userSettings.height > 0) ? userSettings.height : 700,
+      "torchOn": userSettings.torchOn
     };
+
 
     exec(successCallback, errorCallback, 'BarcodeScanner', 'scanWithConfig', [settings]);
   };

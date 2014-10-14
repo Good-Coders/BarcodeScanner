@@ -126,9 +126,10 @@ public class BarcodeScanner extends CordovaPlugin {
 
     Log.d(LOG_TAG, settings.optString("width"));
     Log.d(LOG_TAG, settings.optString("height"));
+    Log.d(LOG_TAG, settings.optString("torchOn"));
     intentScan.putExtra("SCAN_WIDTH", settings.optInt("width"));
     intentScan.putExtra("SCAN_HEIGHT", settings.optInt("height"));
-    intentScan.putExtra("TORCH_ON", true);
+    intentScan.putExtra("TORCH_ON", settings.optBoolean("torchOn"));
 
     this.cordova.startActivityForResult((CordovaPlugin) this, intentScan, REQUEST_CODE);
   }
